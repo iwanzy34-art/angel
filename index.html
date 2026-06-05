@@ -2,77 +2,104 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Promo Spesial - Klik Gambar</title>
-    
-    <!-- Open Graph / Facebook (wajib) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hendyzankx.github.io/angel/">
-    <meta property="og:title" content="Promo Spesial! Klik Gambar">
-    <meta property="og:description" content="Dapatkan penawaran menarik. Klik gambar untuk info lengkap.">
-    <meta property="og:image" content="https://i.imgur.com/cxuNQ5G.jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Promo Spesial! Klik Gambar">
-    <meta name="twitter:description" content="Dapatkan penawaran menarik. Klik gambar untuk info lengkap.">
-    <meta name="twitter:image" content="https://i.imgur.com/cxuNQ5G.jpeg">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menarik - Klik Disini</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #f0f2f5;
-            min-height: 100vh;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            padding: 20px;
+            min-height: 100vh;
+            background-color: #121212; /* Latar belakang gelap elegan */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
-        .clickable-image {
-            display: block;
-            cursor: pointer;
-            border-radius: 28px;
+
+        /* Container Kartu Gambar */
+        .card-container {
+            position: relative;
+            width: 90%;
+            max-width: 500px; /* Lebar maksimal kartu */
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
         }
-        .clickable-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+
+        /* Efek saat mouse diarahkan ke kartu */
+        .card-container:hover {
+            transform: scale(1.02); /* Sedikit membesar */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
         }
-        img {
+
+        /* Gambar Utama */
+        .card-image {
             width: 100%;
             height: auto;
             display: block;
+            min-height: 400px; /* Tinggi minimum agar tidak gepeng */
+            object-fit: cover;
+            filter: brightness(0.9); /* Sedikit gelap agar teks lebih terbaca jika ada */
+            transition: filter 0.3s ease;
         }
-        .caption {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #4b5563;
-            background: rgba(255,255,255,0.8);
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 40px;
+
+        .card-container:hover .card-image {
+            filter: brightness(1.1); /* Menjadi terang saat di-hover */
+        }
+
+        /* Overlay Transparan (Link Penutup) */
+        .click-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        /* Dekorasi Teks "Click Me" (Opsional, untuk memancing klik) */
+        .click-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            pointer-events: none; /* Agar klik tembus ke link */
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card-container:hover .click-hint {
+            background-color: #ff4757; /* Warna merah saat hover */
+            border-color: #ff4757;
+            transform: translateX(-50%) scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- GANTI LINK TUJUAN di bawah sesuai keinginan Anda -->
-        <a href="https://omg10.com/4/10987615" target="_blank" rel="noopener noreferrer" class="clickable-image">
-            <img src="https://i.imgur.com/cxuNQ5G.jpeg" alt="Klik untuk promo">
-        </a>
-        <div class="caption">
-            🖱️ Klik gambar untuk info promo
-        </div>
+
+    <div class="card-container">
+        <!-- Gambar Menarik (Random dari Picsum) -->
+        <!-- Menggunakan seed 'omg10' agar gambar konsisten setiap reload, ganti kata 'omg10' jika ingin gambar lain -->
+        <img src="https://picsum.photos/seed/omg10/600/800" alt="Gambar Menarik" class="card-image">
+
+        <!-- Teks Dekorasi -->
+        <div class="click-hint">Klik Untuk Melihat</div>
+
+        <!-- Link Tujuan -->
+        <a href="https://omg10.com/4/10987615" class="click-overlay" target="_blank"></a>
     </div>
+
 </body>
 </html>
