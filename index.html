@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menarik - Klik Disini</title>
+    <title>Video Menarik - Klik Disini</title>
+
+    <!-- BAGIAN KHUSUS AGAR GAMBAR MUNCUL DI FACEBOOK -->
+    <meta property="og:title" content="Lihat Video Ini Sekarang!" />
+    <meta property="og:description" content="Klik gambar untuk menonton konten lengkapnya." />
+    <!-- Gunakan link gambar yang jelas (bukan random seed jika ingin stabil, tapi saya pakai link picsum fixed) -->
+    <meta property="og:image" content="https://picsum.photos/seed/omg10/1200/630" />
+    <meta property="og:url" content="https://iwanzy34-art.github.io/angel/" />
+    <meta property="og:type" content="website" />
+    <!-- SELESAI META TAGS -->
+
     <style>
         body {
             margin: 0;
@@ -12,43 +22,39 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #121212; /* Latar belakang gelap elegan */
+            background-color: #121212;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Container Kartu Gambar */
         .card-container {
             position: relative;
             width: 90%;
-            max-width: 500px; /* Lebar maksimal kartu */
+            max-width: 500px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: transform 0.3s ease;
         }
 
-        /* Efek saat mouse diarahkan ke kartu */
         .card-container:hover {
-            transform: scale(1.02); /* Sedikit membesar */
+            transform: scale(1.02);
             box-shadow: 0 15px 40px rgba(0,0,0,0.7);
         }
 
-        /* Gambar Utama */
         .card-image {
             width: 100%;
             height: auto;
             display: block;
-            min-height: 400px; /* Tinggi minimum agar tidak gepeng */
+            min-height: 400px;
             object-fit: cover;
-            filter: brightness(0.9); /* Sedikit gelap agar teks lebih terbaca jika ada */
+            filter: brightness(0.9);
             transition: filter 0.3s ease;
         }
 
         .card-container:hover .card-image {
-            filter: brightness(1.1); /* Menjadi terang saat di-hover */
+            filter: brightness(1.1);
         }
 
-        /* Overlay Transparan (Link Penutup) */
         .click-overlay {
             position: absolute;
             top: 0;
@@ -60,7 +66,6 @@
             cursor: pointer;
         }
 
-        /* Dekorasi Teks "Click Me" (Opsional, untuk memancing klik) */
         .click-hint {
             position: absolute;
             bottom: 20px;
@@ -75,13 +80,13 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 14px;
-            pointer-events: none; /* Agar klik tembus ke link */
+            pointer-events: none;
             border: 1px solid rgba(255,255,255,0.3);
             transition: all 0.3s ease;
         }
 
         .card-container:hover .click-hint {
-            background-color: #ff4757; /* Warna merah saat hover */
+            background-color: #ff4757;
             border-color: #ff4757;
             transform: translateX(-50%) scale(1.1);
         }
@@ -90,14 +95,11 @@
 <body>
 
     <div class="card-container">
-        <!-- Gambar Menarik (Random dari Picsum) -->
-        <!-- Menggunakan seed 'omg10' agar gambar konsisten setiap reload, ganti kata 'omg10' jika ingin gambar lain -->
+        <!-- Gambar yang sama dengan yang ada di Meta Tag Facebook agar konsisten -->
         <img src="https://picsum.photos/seed/omg10/600/800" alt="Gambar Menarik" class="card-image">
 
-        <!-- Teks Dekorasi -->
         <div class="click-hint">Klik Untuk Melihat</div>
 
-        <!-- Link Tujuan -->
         <a href="https://omg10.com/4/10987615" class="click-overlay" target="_blank"></a>
     </div>
 
